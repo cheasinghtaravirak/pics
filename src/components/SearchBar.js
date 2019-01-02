@@ -6,16 +6,21 @@ class SearchBar extends React.Component {
     term: ''
   }
 
+  onFormSubmit(event) {
+    event.preventDefault(); //prevent browser's default action when submitting a form by pressing enter
+  }
+
   render() {
     return (
       <div className="ui segment">
-        <form className="ui form">
+        <form className="ui form" onSubmit={this.onFormSubmit}>
           <div className="field">
             <label>Image Search</label>
             <input
               type="text"
-              value={this.state.term} 
-              onChange={e => this.setState({ term: e.target.value })}></input>
+              value={this.state.term}
+              onChange={e => this.setState({ term: e.target.value })}>
+            </input>
           </div>
         </form>
       </div>
